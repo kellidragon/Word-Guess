@@ -1,8 +1,5 @@
 
 
-// 6. How to reveal letters as they are guessed 
-
-
 
 // variables to track
 var wins = 0;
@@ -58,7 +55,7 @@ function checkForWin() {
 	if ((wordUnderscores.indexOf(" __") === -1) && (turnsLeft > 0)){
 		alert("You got it! The correct answer is " + wordToGuess);
 		wins++;
-		reset();
+      reset();
 	}else if (turnsLeft > 9) {
       reset();
    }
@@ -82,36 +79,40 @@ document.onkeyup = function (event) {
             return;
         } else{
             usedLetter.push(playerGuess);
+         
             console.log(usedLetter);
          };
 
    var status = false;
 
-     for(var i=0; i < wordToGuess.length; i++){
+     for(var i=0; i < wordToGuess.length -1; i++){
         if(playerGuess === wordToGuess[i]){
          wordUnderscores[i] = wordToGuess [i];
          status = true;
          console.log(wordToGuess);
          // turnsLeft--;
          displayLetter();
+
+
         
       }
    }
 
    if(status===false){
       turnsLeft--;
+      incorrectGuess.push(playerGuess);
    }
-     
-         
-         
-          
-          
+ 
+   // if ((wordUnderscores.indexOf(" __") === -1) && (turnsLeft > 0)){
+   //    alert("You got it! The correct answer is " + wordToGuess);
+   //    wins++;
+   //    reset();
+   //    return;
+   // }else if (turnsLeft > 9) {
+   //    reset();
+   // }
+
       
-        
-      
-
-
-
   
 
 var html =
